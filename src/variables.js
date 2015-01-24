@@ -50,7 +50,7 @@ return true if c is null, false otherwise
 */
 function isNull(c) {
   //your code here
-  if(typeof c === null) {
+  if(c === null) {
     return true;
   }
   

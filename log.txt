@@ -1,3 +1,7 @@
 Start: Thu, 22 Jan 2015 21:11:00 -0700
 End: Thu, 22 Jan 2015 21:58:32 -0700 
 Tasks: Finished src/variables portion of assignment3
+
+Start: Sat, Jan 24 2015 12:37:08 -0700
+End: Sat, Jan 24 2015 13:26:59 -0700
+Tasks: Fixed isNull function and worked functions.js
