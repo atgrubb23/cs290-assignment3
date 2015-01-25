@@ -32,19 +32,17 @@ var barType = typeof bar;
 */
 
 //your code here
-bar = function (doubleArray) {
-  for(var i = 0; i < doubleArray.length; i++) {
-    if(typeof doubleArray[i] === "number") {
+bar = function(doubleArray) {
+  for (var i = 0; i < doubleArray.length; i++) {
+    if (typeof doubleArray[i] === 'number') {
       doubleArray[i] = doubleArray[i] * 2;
     }
-    
     else {
       return false;
     }
   }
-  
   return true;
-}
+};
 //end your code
 
 /**
@@ -85,26 +83,22 @@ function parseGit(logArray) {
   var gitLogArray = [];
   var myObj;
 
-  for(var i = 0; i < length; i++) {
+  for (var i = 0; i < length; i++) {
     var currHash = '';
     var currDate = '';
     var currMsg = '';
     var stringArray = logArray[i].split(' ');
-    
     currHash = stringArray[0];
-    for(var k = 1; k < 7; k++) {
+    for (var k = 1; k < 7; k++) {
       currDate += stringArray[k] + ' ';
     }
     currDate = new Date(Date.parse(currDate));
-    ;
-    for(var j = 7; j < stringArray.length; j++) { 
-      currMsg += stringArray[j] + ' '; 
-    };
-    
+    for (var j = 7; j < stringArray.length; j++) {
+      currMsg += stringArray[j] + ' ';
+    }
     myObj = new GitLog(currHash, currDate, currMsg);
     gitLogArray.push(myObj);
   }
-  
   return gitLogArray;
 }
 //end your code

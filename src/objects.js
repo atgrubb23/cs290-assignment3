@@ -45,39 +45,32 @@ function MessageLog(user) {
   this.receivedMsgs = [];
   var _totalSent = 0;
   var _totalReceived = 0;
-  
   this.logMessage = function(messageText, direction) {
-    if(direction === 0) {
+    if (direction === 0) {
       this.sentMsgs.unshift(messageText);
       _totalSent++;
-      
-      if(this.sentMsgs.length > 5) {
+      if (this.sentMsgs.length > 5) {
         this.sentMsgs.pop();
       }
     }
-    
-    else if(direction === 1) {
+    else if (direction === 1) {
       this.receivedMsgs.push(messageText);
       _totalReceived++;
       systemMsgsReceived++;
     }
-    
     else {
       return undefined;
     }
-  }
-  
+  };
   this.getSentMessage = function(n) {
     return this.sentMsgs[n];
-  }
-  
+  };
   this.totalSent = function() {
     return _totalSent;
-  }
-  
+  };
   this.totalReceived = function() {
     return _totalReceived;
-  }
+  };
 }
 //end your code
 
@@ -89,7 +82,7 @@ function MessageLog(user) {
 //your code here
 MessageLog.prototype.lastReceivedMessage = function() {
   return this.receivedMsgs[this.receivedMsgs.length - 1];
-}
+};
 //end your code
 
 /**
@@ -99,7 +92,7 @@ MessageLog.prototype.lastReceivedMessage = function() {
 */
 
 //your code here
-var myLog = new MessageLog("Black Hat Guy");
+var myLog = new MessageLog('Black Hat Guy');
 myLog.logMessage('foo', 1);
 myLog.logMessage('bar', 1);
 myLog.logMessage('baz', 1);
@@ -119,8 +112,8 @@ console.log(myLog.totalReceived());
 //your code here
 MessageLog.prototype.systemReceived = function() {
   return systemMsgsReceived;
-}
-var myLog2 = new MessageLog("Some Guy");
+};
+var myLog2 = new MessageLog('Some Guy');
 myLog2.logMessage('foo', 1);
 myLog2.logMessage('bar', 1);
 myLog2.logMessage('baz', 1);
