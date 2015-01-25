@@ -80,21 +80,31 @@ function GitLog(hash, date, message) {
 */
 
 //your code here
-var logArray = [];
-var gitLogArray = [];
-var len = 5;
-  
-for (i = 0; i < len; i++) {
-  logArray.push("111111 Wed, 7 Jan 2015 21:42:26 -0800 \"Initial commit\"");
-}
+function parseGit(logArray) {
+  var length = logArray.length;
+  var gitLogArray = [];
+  var myObj;
 
-function parseGit(logArray, gitLogArray) {
-  var gitObject;
-  gitObject = GitLog(101010, 1990, 'test');
-  gitLogArray.push(gitObject);
-  //for(i = 0; i < logArray.length; i++) {
-    //gitObject = GitLog(101010 + i, 1990, 'test');
-    //gitLogArray.push(gitObject);
-  //}
+  for(var i = 0; i < length; i++) {
+    var currHash = '';
+    var currDate = '';
+    var currMsg = '';
+    var stringArray = logArray[i].split(' ');
+    
+    currHash = stringArray[0];
+    for(var k = 1; k < 7; k++) {
+      currDate += stringArray[k] + ' ';
+    }
+    currDate = new Date(Date.parse(currDate));
+    ;
+    for(var j = 7; j < stringArray.length; j++) { 
+      currMsg += stringArray[j] + ' '; 
+    };
+    
+    myObj = new GitLog(currHash, currDate, currMsg);
+    gitLogArray.push(myObj);
+  }
+  
+  return gitLogArray;
 }
 //end your code

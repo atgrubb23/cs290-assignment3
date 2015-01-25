@@ -10,7 +10,7 @@
 
 function returnObjectLiteral() {
   //your code here
-  return undefined; //Modify ONLY this line
+  return ({type: 'Goldfish', brand: 'Pepperidge Farm', flavor: 'Cheddar', count: 2000}); //Modify ONLY this line
   //end your code
 }
 
@@ -38,7 +38,47 @@ function returnObjectLiteral() {
 */
 
 //your code here
-
+window.systemMsgsReceived = 0;
+function MessageLog(user) {
+  this.user = user;
+  this.sentMsgs = [];
+  this.receivedMsgs = [];
+  var _totalSent = 0;
+  var _totalReceived = 0;
+  
+  this.logMessage = function(messageText, direction) {
+    if(direction === 0) {
+      this.sentMsgs.unshift(messageText);
+      _totalSent++;
+      
+      if(this.sentMsgs.length > 5) {
+        this.sentMsgs.pop();
+      }
+    }
+    
+    else if(direction === 1) {
+      this.receivedMsgs.push(messageText);
+      _totalReceived++;
+      systemMsgsReceived++;
+    }
+    
+    else {
+      return undefined;
+    }
+  }
+  
+  this.getSentMessage = function(n) {
+    return this.sentMsgs[n];
+  }
+  
+  this.totalSent = function() {
+    return _totalSent;
+  }
+  
+  this.totalReceived = function() {
+    return _totalReceived;
+  }
+}
 //end your code
 
 /**
@@ -47,7 +87,9 @@ function returnObjectLiteral() {
 * received.
 */
 //your code here
-
+MessageLog.prototype.lastReceivedMessage = function() {
+  return this.receivedMsgs[this.receivedMsgs.length - 1];
+}
 //end your code
 
 /**
@@ -57,5 +99,30 @@ function returnObjectLiteral() {
 */
 
 //your code here
+var myLog = new MessageLog("Black Hat Guy");
+myLog.logMessage('foo', 1);
+myLog.logMessage('bar', 1);
+myLog.logMessage('baz', 1);
+console.log(myLog.lastReceivedMessage());
+console.log(myLog.totalReceived());
+//end your code
 
+/**
+* Add a method to the MessageLog prototype called systemReceived().
+* This method should return the total number of messages received for all
+* instances of message logs. So if you have logs A and B, A has received
+* 3 messages, B has received 8. systemReceived() should return 11. You
+* may need to do more than simply add a method to make this functionality
+* work.
+*/
+
+//your code here
+MessageLog.prototype.systemReceived = function() {
+  return systemMsgsReceived;
+}
+var myLog2 = new MessageLog("Some Guy");
+myLog2.logMessage('foo', 1);
+myLog2.logMessage('bar', 1);
+myLog2.logMessage('baz', 1);
+console.log(myLog2.systemReceived());
 //end your code

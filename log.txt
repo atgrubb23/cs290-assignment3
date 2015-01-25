@@ -5,3 +5,11 @@ Tasks: Finished src/variables portion of assignment3
 Start: Sat, Jan 24 2015 12:37:08 -0700
 End: Sat, Jan 24 2015 13:26:59 -0700
 Tasks: Fixed isNull function and worked functions.js
+
+Start: Sat, Jan 24 2015 13:54:23 -0700
+End: Sat, Jun 24 2015 15:36:42 -0700
+Tasks: Finished functions.js
+
+Start: Sun, Jan 25 2015 00:37:32 -0700
+End: Sun, Jan 25 2015 01:18:40 -0700
+Tasks: Finished extra credit systemReceived() method
